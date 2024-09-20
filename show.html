@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרופיל חיית מחמד</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="./assets/main2.css">
+    <script src="./assets/show.js"></script>
+</head>
+<body>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="findH2Modal">מצאת חיית מחמד אבודה!</h2>
+            <button id="notifyOwnerModal">הודע לבעלים</button>
+        </div>
+    </div>
+
+
+
+
+    <header>
+        <div id="cover-image" class="cover-image"></div>
+        <div id="profile-image" class="profile-image"></div>
+    </header>
+    
+    <main>
+        <section class="pet-info">
+            <h1 id="petNameTitle">שם החיה</h1>
+            <p id="pettypelabel">סוג: כלב/חתול/אחר</p>
+            <p id="petAgelabel">גיל: X שנים</p>
+            <p>גזע: ישראלי מעורב</p>
+        </section>
+        
+        <section class="medical-info">
+            <h2>מידע רפואי</h2>
+            <ul>
+                <li id="kalevet">חיסון כלבת: </li>
+                <li id="meshushe">חיסון משושה: </li>
+                <li id="park">תולעת הפארק: </li>
+                <li id="sirus">סירוס/עיקור: </li>
+            </ul>
+        </section>
+        
+        <section class="owner-info">
+            <h2>פרטי הבעלים</h2>
+            <p id="ownerName">שם: ישראל ישראלי</p>
+            <p>טלפון: <a id="ownerPhone" href="tel:+972501234567">050-1234567</a></p>
+            <p>אימייל: <a id="ownerMail" href="mailto:israel@example.com">israel@example.com</a></p>
+        </section>
+        <button id="notifyOwnerPage" class="notify-button">הודע לבעלים על מציאת החיה</button>
+    </main>
+    
+    <footer>
+        <p>© 2024 כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>

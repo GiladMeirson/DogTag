@@ -1,0 +1,359 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+input[type="file"] {
+    border: none;
+    padding: 8px 0;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    border-radius: 6px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+fieldset {
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+legend {
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 0 10px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.checkbox-item label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* רספונסיביות למסכים קטנים */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* התאמות נוספות למסכים קטנים מאוד */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, select {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* ... (הסגנונות הקודמים נשארים) ... */
+
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border: 3px dashed #3498db;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f0f8ff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.file-upload-wrapper:hover {
+    background-color: #e1f0fa;
+    border-color: #2980b9;
+}
+
+.file-upload-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-content {
+    text-align: center;
+    color: #34495e;
+}
+
+.file-upload-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.file-upload-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* אנימציה בעת hover */
+.file-upload-wrapper:hover .file-upload-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* סגנון כאשר קובץ נבחר (לשימוש עם JavaScript) */
+.file-upload-wrapper.file-selected {
+    border-style: solid;
+    background-color: #e8f6ff;
+}
+
+.file-upload-wrapper.file-selected .file-upload-text:after {
+    content: " - קובץ נבחר";
+    color: #27ae60;
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 600px) {
+    .file-upload-wrapper {
+        height: 150px;
+    }
+
+    .file-upload-icon {
+        font-size: 36px;
+    }
+
+    .file-upload-text {
+        font-size: 16px;
+    }
+}
+
+#main-container{
+    background-image: url('./wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background: 
+      linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+      url('./wallpaper.jpg');
+    
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    
+}
+
+/* ... (שאר הסגנונות הרספונסיביים נשארים) ... */
+.file-upload-wrapper {
+    width: 100%;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+.file-upload-wrapper:hover {
+    border-color: #3498db;
+}
+.file-upload-wrapper.file-selected {
+    border-color: #27ae60;
+    background-color: #e8f6ff;
+}
+.file-upload-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.file-upload-text {
+    font-size: 16px;
+    color: #333;
+    vertical-align: middle;
+}
+.file-upload-input {
+    display: none;
+}
+.file-upload-success {
+    margin-top: 10px;
+    color: #27ae60;
+    display: none;
+}
+.file-preview {
+    max-width: 100%;
+    max-height: 150px;
+    margin-top: 10px;
+    border-radius: 6px;
+    display: none;
+    border: 1px solid #bdc3c7;
+}
+
+
+
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #3498db;
+    border-radius: 50%;
+    border-top: 5px solid #e74c3c;
+    animation: spin 1s linear infinite, color-change 3s ease-in-out infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes color-change {
+    0% { border-top-color: #e74c3c; }
+    33% { border-top-color: #f1c40f; }
+    66% { border-top-color: #2ecc71; }
+    100% { border-top-color: #e74c3c; }
+}
