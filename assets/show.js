@@ -1,4 +1,5 @@
 ProfileData=null;
+const prefixPhoto=`https://proj.ruppin.ac.il/cgroup41/test2/tar1/uploadedFiles/`;
 $(document).ready(function() {
     ProfileData = JSON.parse(localStorage.getItem('profileData'));
     var modal = document.getElementById('modal');
@@ -76,8 +77,11 @@ $(document).ready(function() {
 
 const RenderDetails=()=>{
     $('#findH2Modal').html(`מצאת את ${ProfileData.petName} !`);
-    $('#cover-image').css('background-image', `url(${ProfileData.coverLink})`);
-    $('#profile-image').css('background-image', `url(${ProfileData.profileLink})`);
+    let profilephoto =ProfileData.profileLink.split(`\\`)[ProfileData.profileLink.split(`\\`).length-1];
+    let coverphoto =ProfileData.coverLink.split(`\\`)[ProfileData.coverLink.split(`\\`).length-1];
+    $('#cover-image').css('background-image', `url(${prefixPhoto+coverphoto})`);
+    $('#profile-image').css('background-image', `url(${prefixPhoto+profilephoto})`);
+
     $('#petNameTitle').html('שם: '+ProfileData.petName);
     $('#pettypelabel').html('סוג: '+ProfileData.petType);
     ProfileData.petGender=='female'?$('#petAgelabel').html('בת: '+ProfileData.petAge+' שנים'):$('#petAgelabel').html('בן: '+ProfileData.petAge+' שנים');

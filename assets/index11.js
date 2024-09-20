@@ -109,6 +109,7 @@ $(document).ready(()=>{
                             icon: "success",
                             confirmButtonText: "OK",
                         }).then(()=>{
+                            localStorage.setItem('profileData', JSON.stringify(client));
                             window.location.href = "show.html";
                         });
                     },
