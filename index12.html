@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמת בעלי חיות מחמד</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/style.js"></script>
+    <link rel="stylesheet" href="./assets/main.css">
+    <script src="./assets/index11.js"></script>
+
+</head>
+<body>
+    <div id="main-container" class="container">
+        <h1>ברוכים הבאים להרשמה ל"חבר-חוזר"</h1>
+        <form id="mainForm">
+            <div class="section owner-details">
+                <h2>פרטי הבעלים</h2>
+                <div class="form-group">
+                    <label for="owner-name">שם:</label>
+                    <input type="text" id="owner-name" name="owner-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-phone">טלפון:</label>
+                    <input type="tel" id="owner-phone" name="owner-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-email">מייל:</label>
+                    <input type="email" id="owner-email" name="owner-email" required>
+                </div>
+            </div>
+
+            <div class="section pet-details">
+                <h2>פרטי חיית המחמד</h2>
+                <div class="form-group">
+                    <label for="pet-type">סוג החיה:</label>
+                    <select id="pet-type" name="pet-type" required>
+                        <option value="">בחר סוג</option>
+                        <option value="כלב">כלב</option>
+                        <option value="חתול">חתול</option>
+                        <option value="ציפור">ציפור</option>
+                        <option value="ארנב">ארנב</option>
+                        <option value="אחר">אחר</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-gender">מין:</label>
+                    <select id="pet-gender" name="pet-gender" required>
+                        <option value="">בחר מין</option>
+                        <option value="male">זכר</option>
+                        <option value="female">נקבה</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-name">שם:</label>
+                    <input type="text" id="pet-name" name="pet-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="pet-age">גיל החיה:</label>
+                    <input type="number" id="pet-age" name="pet-age" min="0" required>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>חיסונים ומצב רפואי:</legend>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vaccine-rabies" name="vaccines" value="rabies">
+                            <label for="vaccine-rabies">כלבת</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vaccine-distemper" name="vaccines" value="distemper">
+                            <label for="vaccine-distemper">משושה</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dewormed" name="medical" value="dewormed">
+                            <label for="dewormed">תולעת הפארק</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="neutered" name="medical" value="neutered">
+                            <label for="neutered">מסורס/מעוקרת</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="pet-profile-pic">תמונת פרופיל:</label>
+                    <div class="file-upload-wrapper" id="profile-pic-wrapper">
+                        <input type="file" id="pet-profile-pic" name="pet-profile-pic" accept="image/*" class="file-upload-input">
+                        <span class="file-upload-icon">🖼️</span>
+                        <span class="file-upload-text">לחץ כאן להעלאת תמונה</span>
+                        <div class="file-upload-success">התמונה הועלתה בהצלחה!</div>
+                    </div>
+                    <img id="profile-pic-preview" class="file-preview" alt="תצוגה מקדימה של תמונת הפרופיל">
+                </div>
+                <div class="form-group">
+                    <label for="pet-cover-pic">תמונת קאבר של החיה:</label>
+                    <div class="file-upload-wrapper" id="cover-pic-wrapper">
+                        <input type="file" id="pet-cover-pic" name="pet-cover-pic" accept="image/*" class="file-upload-input">
+                        <span class="file-upload-icon">🖼️</span>
+                        <span class="file-upload-text">לחץ כאן להעלאת תמונה</span>
+                        <div class="file-upload-success">התמונה הועלתה בהצלחה!</div>
+                    </div>
+                    <img id="cover-pic-preview" class="file-preview" alt="תצוגה מקדימה של תמונת הקאבר">
+                </div>
+            </div>
+
+            <div class="form-group submit-group">
+                <input type="submit" value="שלח טופס">
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+</body>
+</html>
