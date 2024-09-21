@@ -109,7 +109,7 @@ $(document).ready(()=>{
                             icon: "success",
                             confirmButtonText: "OK",
                         }).then(()=>{
-                            localStorage.setItem('profileData', JSON.stringify(client));
+                            sessionStorage.setItem('profileData', JSON.stringify(client));
                             window.location.href = "show.html";
                         });
                     },
@@ -149,7 +149,7 @@ const fetchIfThisUrlGotData=(url)=>{
         success: (data)=>{
             console.log(data);
             if (data.id!=-1) {
-                localStorage.setItem('profileData', JSON.stringify(data));
+                sessionStorage.setItem('profileData', JSON.stringify(data));
                 location.href = "show.html";
             }
         },

@@ -1,7 +1,7 @@
 ProfileData=null;
 const prefixPhoto=`https://proj.ruppin.ac.il/cgroup41/test2/tar1/uploadedFiles/`;
 $(document).ready(function() {
-    ProfileData = JSON.parse(localStorage.getItem('profileData'));
+    ProfileData = JSON.parse(sessionStorage.getItem('profileData'));
     var modal = document.getElementById('modal');
     var closeBtn = document.getElementsByClassName('close')[0];
     var notifyBtnModal = document.getElementById('notifyOwnerModal');
@@ -30,14 +30,12 @@ $(document).ready(function() {
 
 
 
-    // פונקציה לטיפול בלחיצה על כפתור "הודע לבעלים"
     function handleNotifyClick() {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var lat = position.coords.latitude;
                 var lon = position.coords.longitude;
-                // כאן תצטרך להוסיף את הפרטים של הבעלים והחיה
-                var ownerEmail = ProfileData.ownerEmail; // יש להחליף בכתובת האמיתית
+                var ownerEmail = ProfileData.ownerEmail; 
                 var ownerName = ProfileData.ownerName;
                 var petName = ProfileData.petName;
                 //console.log(lat, lon, ownerEmail, ownerName, petName);
@@ -65,7 +63,6 @@ $(document).ready(function() {
             alert("הדפדפן שלך אינו תומך באיתור מיקום.");
         }
     }
-    // הוסף אירועי לחיצה לשני הכפתורים
     notifyBtnModal.addEventListener('click', function() {
         handleNotifyClick();
         modal.style.display = 'none';
