@@ -45,9 +45,12 @@ $(document).ready(function() {
                     let googleMapsUrl = `https://www.google.com/maps?q=${lat},${lon}`;
                     //console.log(googleMapsUrl);
                     let subject = `מצאו את ${petName}! 🐾`;
-                    let h1 = `<h1 style="text-align:center;">שלום ${ownerName}, ${petName} אבד,</h1> <br>`;
-                    let h2=`<h2 style="text-align:center;">אך אל דאגה מצאו אותו! 🎉</h2> <br>`;
-                    let h3=`<h2 style="text-align:center;">והברקוד שלו נסרק ב-</h2>`;
+                    let h1='';
+                    let h2='';
+                    let h3='';
+                    ProfileData.petGender=='female'?h1 = `<h1 style="text-align:center;">שלום ${ownerName}, ${petName} אבדה,</h1> <br>`:h1 = `<h1 style="text-align:center;">שלום ${ownerName}, ${petName} אבד,</h1> <br>`;
+                    ProfileData.petGender=='female'?h2=`<h2 style="text-align:center;">אך אל דאגה מצאו אותה! 🎉</h2> <br>`:h2=`<h2 style="text-align:center;">אך אל דאגה מצאו אותו! 🎉</h2> <br>`;
+                    ProfileData.petGender == 'female'?h3=`<h2 style="text-align:center;">והברקוד שלה נסרק ב-</h2>`:h3=`<h2 style="text-align:center;">והברקוד שלו נסרק ב-</h2>`;
                     let h4=`<h2 style="text-align:center;">כתובת מדויקת: ${preciseAddress}</h2> <br>`;
                     let h5=`<h2 style="text-align:center;">קישור לכתובת המדויקת שבה נסרק הברקוד במפות גוגל: ${googleMapsUrl}</h2> <br>`;
                     let embad = `<iframe src="${preciseAddress}"></iframe>`
