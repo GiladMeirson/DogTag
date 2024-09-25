@@ -150,3 +150,5 @@ const renderDetails=()=>{
     $('.file-preview').show();
 
 }
+
+

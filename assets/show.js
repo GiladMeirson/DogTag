@@ -1,6 +1,7 @@
 ProfileData=null;
 const validProfileURL = `https://proj.ruppin.ac.il/cgroup41/test2/tar1/api/Profiles/ValidProfile?Id=`;
 const prefixPhoto=`https://proj.ruppin.ac.il/cgroup41/test2/tar1/uploadedFiles/`;
+const SendPassMail = `https://proj.ruppin.ac.il/cgroup41/test2/tar1/api/Profiles/GetPassByID`;
 $(document).ready(function() {
     $('.loader-overlay').hide();
     ProfileData = JSON.parse(sessionStorage.getItem('profileData'));
@@ -68,6 +69,50 @@ $(document).ready(function() {
         });
 
     })
+
+
+    $('#forgotPassA').click(()=>{
+        $('#passModal').hide();
+        $('.loader-overlay').show();
+        $.ajax({
+            url: SendPassMail,
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(ProfileData.id),
+            success: function(data) {
+                $('.loader-overlay').hide();
+                //console.log(data);
+                if (data) {
+                    let body = `<h1>שלום ${ProfileData.ownerName},</h1> <br> <h2>הסיסמא שלך לפרופיל של ${ProfileData.petName} היא: ${data}</h2> <br> <h3>אנא שמור על הסיסמא במקום בטוח ואל תחשוף אותה לאף אחד</h3>`;
+                    Email.send({
+                        SecureToken:'9512cd3e-b42e-4791-8bb0-7294b2bc2dfb',
+                        To: ProfileData.ownerEmail,
+                        From: "gilad.meirson@gmail.com",
+                        Subject: `שחזור סיסמא לפרופיל של ${ProfileData.petName}`,
+                        Body:body,
+                    }).then(()=>{
+                        swal.fire({
+                            title: 'הסיסמא נשלחה למייל של הבעלים',
+                            text: 'בדוק את המייל שלך, אם עדיין אינך רואה את הסיסמא במייל תנסה שוב או תבדוק את תיקיית הספאם (דואר זבל) במייל.',
+                            icon: 'success',
+                            confirmButtonText: 'אישור'
+                        });
+                    })
+
+                }
+            },
+            error: function(err) {
+                $('.loader-overlay').hide();
+                swal.fire({
+                    title: 'שגיאה',
+                    text: 'אירעה שגיאה בשליחת הסיסמא, אנא נסה שוב',
+                    icon: 'error',
+                    confirmButtonText: 'אישור'
+                });
+                console.error(err);
+            }
+        });
+    });
 
 
 
