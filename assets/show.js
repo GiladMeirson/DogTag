@@ -1,9 +1,12 @@
 ProfileData=null;
+const validProfileURL = `https://proj.ruppin.ac.il/cgroup41/test2/tar1/api/Profiles/ValidProfile?Id=`;
 const prefixPhoto=`https://proj.ruppin.ac.il/cgroup41/test2/tar1/uploadedFiles/`;
 $(document).ready(function() {
+    $('.loader-overlay').hide();
     ProfileData = JSON.parse(sessionStorage.getItem('profileData'));
     var modal = document.getElementById('modal');
     var closeBtn = document.getElementsByClassName('close')[0];
+    let closePass = document.getElementsByClassName('close')[1];
     var notifyBtnModal = document.getElementById('notifyOwnerModal');
     var notifyBtnPage = document.getElementById('notifyOwnerPage');
     if (ProfileData!=null) {
@@ -18,6 +21,10 @@ $(document).ready(function() {
         modal.style.display = 'none';
     }
 
+    closePass.onclick = function() {
+        $('#passModal').hide();
+    }
+
     
     window.onclick = function(event) {
         if (event.target == modal) {
@@ -25,7 +32,42 @@ $(document).ready(function() {
         }
     }
 
+    $('#editProfileBTN').click(()=>{
+        $('#passModal').show();
+    })
 
+    $('#passBTN').click(()=>{
+        const pass = $('#passIN').val();
+        const url = validProfileURL+ProfileData.id;
+        $.ajax({
+            url: url,
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(pass),
+            success: function(data) {
+                if (data) {
+                    $('#passModal').hide();
+                    $('#passIN').val('');
+                    //console.log(data);
+                    
+                    if (data) {
+                        sessionStorage.setItem('profileData', JSON.stringify(ProfileData));
+                        location.href = 'edit.html';
+                    }
+                }
+            },
+            error: function(err) {
+                swal.fire({
+                    title: 'סיסמה שגויה',
+                    text: 'נסה שוב',
+                    icon: 'error',
+                    confirmButtonText: 'אישור'
+                });
+                console.error(err);
+            }
+        });
+
+    })
 
 
 
@@ -164,5 +206,3 @@ async function getPreciseAddress(lat, lon) {
     }
 }
 
-// דוגמה לשימוש:
-// getPreciseAddress(32.0853, 34.7818).then(address => console.log(address));

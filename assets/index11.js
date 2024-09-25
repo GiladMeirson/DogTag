@@ -18,6 +18,7 @@ $(document).ready(()=>{
         const oWnerName = $('#owner-name').val();
         const oWnerEmail = $('#owner-email').val();
         const oWnerPhone = $('#owner-phone').val();
+        const pass = $('#passwordIN').val();
 
         const petType = $('#pet-type').val();
         const petName = $('#pet-name').val();
@@ -56,7 +57,8 @@ $(document).ready(()=>{
             vaccineRabies:vaccineRabies,
             vaccineDistemper:vaccineDistemper,
             dewormed:dewormed,
-            neutered:neutered
+            neutered:neutered,
+            password:pass,
         }
         //console.log(client);
         //console.log(formData);

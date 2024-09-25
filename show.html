@@ -21,7 +21,21 @@
         </div>
     </div>
 
+    <div id="passModal" class="modal">
+        <div class="modal-content">
+         <span class="close">&times;</span>
+         <h4 style="margin-top: 20px;">כדי לעבור לעריכת פרופיל הקש סיסמא</h4>
+         <div class="form-group">
+            <input type="password" name="passIN" id="passIN">
+            <br>
+            <button id="passBTN" class="edit-button">אישור</button>
+         </div>
 
+         <br>
+         <a href="">שכחתי סיסמא</a>
+
+        </div>
+    </div>
 
 
     <header>
@@ -30,6 +44,7 @@
     </header>
     
     <main>
+        
         <section class="pet-info">
             <h1 id="petNameTitle">שם החיה</h1>
             <p id="pettypelabel">סוג: כלב/חתול/אחר</p>
@@ -53,10 +68,17 @@
             <p>אימייל: <a id="ownerMail" href="mailto:israel@example.com">israel@example.com</a></p>
         </section>
         <button id="notifyOwnerPage" class="notify-button">הודע לבעלים על מציאת החיה</button>
+        <button id="editProfileBTN" class="edit-button">עריכת פרופיל</button>
     </main>
     
     <footer>
         <p>© 2024 כל הזכויות שמורות</p> <a href="https://giladmeirson.site/">-Gilad Meirson-</a>
     </footer>
+
+
+
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
 </body>
 </html>
